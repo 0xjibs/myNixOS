@@ -108,7 +108,7 @@
       gitea
       git
       github-cli
-      github-desktop
+      #github-desktop
       vscode
       opencode
       clinfo
