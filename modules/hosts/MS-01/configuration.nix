@@ -5,8 +5,8 @@
     imports =
     [ # Include the results of the hardware scan.
       self.nixosModules.ms01Hardware
-      self.nixosModules.niri
-      #self.nixosModules.mango
+      #self.nixosModules.niri
+      self.nixosModules.mango
     ];
 
     nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -17,7 +17,7 @@
     # Use latest kernel.
     boot.kernelPackages = pkgs.linuxPackages_latest;
 
-    networking.hostName = "nixos"; # Define your hostname.
+    networking.hostName = "callisto"; # Define your hostname.
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
     # Configure network proxy if necessary
@@ -51,7 +51,7 @@
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  #services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -90,35 +90,13 @@
     description = "JiBS";
     extraGroups = [ "networkmanager" "wheel" "audio" "video"];
     packages = with pkgs; [
-      kdePackages.kate
-      thunderbird
-      google-chrome
-      whatsapp-electron
-      flameshot
-      kdePackages.dolphin
-      protonmail-desktop
-      audacity
-      vlc
-      fish
-      fastfetch
-      foot
-      wl-clipboard
-      grim
-      slurp
-      gitea
-      git
-      github-cli
-      #github-desktop
-      vscode
-      opencode
-      clinfo
-      tmux
+
 
     ];
   };
 
   # Install mangoWC.
-  # programs.mangowc.enable = true;
+  programs.mangowc.enable = true;
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -126,14 +104,17 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Install steam.
+  # Install Steam.
   programs.steam.enable = true;
-  #programs.xwayland.enable = true;
+
+  # Install Wayland
+  programs.xwayland.enable = true;
 
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+  kitty
   neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   joplin-desktop
   spotify
@@ -160,6 +141,30 @@
   wdisplays
   gpu-viewer
   virtualgl
+  kdePackages.kate
+  thunderbird
+  google-chrome
+  whatsapp-electron
+  flameshot
+  kdePackages.dolphin
+  protonmail-desktop
+  audacity
+  vlc
+  fish
+  fastfetch
+  foot
+  wl-clipboard
+  grim
+  slurp
+  gitea
+  git
+  github-cli
+  #github-desktop
+  vscode
+  opencode
+  clinfo
+  tmux
+  inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

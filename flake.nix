@@ -9,6 +9,10 @@
 
     wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
     #mangowc.url = "github:DreamMaoMao/mangowc";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);

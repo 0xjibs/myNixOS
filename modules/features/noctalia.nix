@@ -1,6 +1,7 @@
 { self, inputs, ... }: {
   perSystem = { pkgs, ... }: {
     packages.myNoctalia = inputs.wrapper-modules.wrappers.noctalia-shell.wrap {
+     #packages.myNoctalia = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default {
       inherit pkgs; # THIS PART IS VERY IMPORTAINT, I FORGOT IT IN THE VIDEO!!!
       settings =
         (builtins.fromJSON
