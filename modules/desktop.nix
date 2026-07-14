@@ -14,11 +14,11 @@
     #programs.niri.enable = true;
     #programs.niri.package = selfpkgs.niri;
 
-    # preferences.autostart = [selfpkgs.quickshellWrapped];
-    # preferences.autostart = [selfpkgs.noctalia-shell];
+    preferences.autostart = [selfpkgs.quickshellWrapped];
+    preferences.autostart = [selfpkgs.noctalia-shell];
 
     environment.systemPackages = [
-      #selfpkgs.terminal
+      selfpkgs.terminal
       pkgs.pcmanfm
       selfpkgs.noctalia-shell
     ];
