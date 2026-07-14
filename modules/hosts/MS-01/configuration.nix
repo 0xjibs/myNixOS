@@ -5,8 +5,8 @@
     imports =
     [ # Include the results of the hardware scan.
       self.nixosModules.ms01Hardware
-      #self.nixosModules.niri
-      self.nixosModules.mango
+      self.nixosModules.desktop
+      #self.nixosModules.mango
     ];
 
     nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -28,22 +28,22 @@
     networking.networkmanager.enable = true;
 
     # Set your time zone.
-    time.timeZone = "Europe/Paris";
+    #time.timeZone = "Europe/Paris";
 
     # Select internationalisation properties.
-    i18n.defaultLocale = "fr_FR.UTF-8";
+    #i18n.defaultLocale = "fr_FR.UTF-8";
 
-    i18n.extraLocaleSettings = {
-        LC_ADDRESS = "fr_FR.UTF-8";
-        LC_IDENTIFICATION = "fr_FR.UTF-8";
-        LC_MEASUREMENT = "fr_FR.UTF-8";
-        LC_MONETARY = "fr_FR.UTF-8";
-        LC_NAME = "fr_FR.UTF-8";
-        LC_NUMERIC = "fr_FR.UTF-8";
-        LC_PAPER = "fr_FR.UTF-8";
-        LC_TELEPHONE = "fr_FR.UTF-8";
-        LC_TIME = "fr_FR.UTF-8";
-    };
+    #i18n.extraLocaleSettings = {
+    #    LC_ADDRESS = "fr_FR.UTF-8";
+    #    LC_IDENTIFICATION = "fr_FR.UTF-8";
+    #    LC_MEASUREMENT = "fr_FR.UTF-8";
+    #    LC_MONETARY = "fr_FR.UTF-8";
+    #    LC_NAME = "fr_FR.UTF-8";
+    #    LC_NUMERIC = "fr_FR.UTF-8";
+    #    LC_PAPER = "fr_FR.UTF-8";
+    #    LC_TELEPHONE = "fr_FR.UTF-8";
+    #    LC_TIME = "fr_FR.UTF-8";
+    #};
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
@@ -66,20 +66,20 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
+  #services.pulseaudio.enable = false;
+  #security.rtkit.enable = true;
+  #services.pipewire = {
+  #  enable = true;
+  #  alsa.enable = true;
+  #  alsa.support32Bit = true;
+  #  pulse.enable = true;
+  #  # If you want to use JACK applications, uncomment this
+  #  jack.enable = true;
+  #
+  #  # use the example session manager (no others are packaged yet so this is enabled by default,
+  #  # no need to redefine it in your config for now)
+  #  #media-session.enable = true;
+  #};
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -90,16 +90,14 @@
     description = "JiBS";
     extraGroups = [ "networkmanager" "wheel" "audio" "video"];
     packages = with pkgs; [
-
-
     ];
   };
 
   # Install mangoWC.
-  programs.mangowc.enable = true;
+  #programs.mangowc.enable = true;
 
   # Install firefox.
-  programs.firefox.enable = true;
+  #programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -108,20 +106,37 @@
   programs.steam.enable = true;
 
   # Install Wayland
-  programs.xwayland.enable = true;
+  #programs.xwayland.enable = true;
+
+    #Fonts
+	#fonts.packages = with pkgs; [
+	#	noto-fonts
+	#	noto-fonts-cjk-sans
+	#	noto-fonts-color-emoji
+	#	fira-code
+	#	fira-code-symbols
+	#	departure-mono
+	#];
 
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  kitty
-  neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  kitty             #terminal
+  foot              #terminal
+  warp-terminal     #terminal
+  tmux              #terminal #tools
+  fish              #shell
+  fastfetch         #terminal #tools
+  neovim            #editor   #text
   joplin-desktop
-  spotify
-  davinci-resolve
-  gimp
-  blender
-  cemu
+  spotify           #player   #music
+  davinci-resolve   #editor   #video
+  gimp              #editor   #picture
+  blender           #editor   #3d
+  audacity          #editor   #music
+  vlc               #player   #video
+  cemu              #gaming   #emu
   mesa
   intel-media-driver  # Pour l'accélération matérielle
   libX11
@@ -135,7 +150,7 @@
   vulkan-tools
   pciutils
   gamescope
-  warp-terminal
+
   mistral-vibe
   wget
   wdisplays
@@ -144,26 +159,23 @@
   kdePackages.kate
   thunderbird
   google-chrome
-  whatsapp-electron
+  whatsapp-electron   #messaging
   flameshot
   kdePackages.dolphin
   protonmail-desktop
-  audacity
-  vlc
-  fish
-  fastfetch
-  foot
+
+
   wl-clipboard
   grim
   slurp
   gitea
   git
   github-cli
-  #github-desktop
-  vscode
+  vscodium
   opencode
+  jujutsu
   clinfo
-  tmux
+
   inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
