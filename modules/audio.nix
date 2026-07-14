@@ -1,9 +1,9 @@
 {
   flake.nixosModules.audio = {pkgs, ...}: {
-    preferences.keymap = {
-      "SUPER + v".exec = ''${pkgs.alsa-utils}/bin/amixer sset Capture toggle'';
-      "SUPER + d"."s".package = pkgs.pwvucontrol;
-    };
+    #preferences.keymap = {
+    #  "SUPER + v".exec = ''${pkgs.alsa-utils}/bin/amixer sset Capture toggle'';
+    #  "SUPER + d"."s".package = pkgs.pwvucontrol;
+    #};
 
     #persistance.cache.directories = [
     #  ".local/state/wireplumber"
