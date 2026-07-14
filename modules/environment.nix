@@ -10,9 +10,9 @@
     ...
   }: {
     # My whole desktop in one package, includes kityy terminal
-    packages.desktop = inputs.wrapper-modules.wrappers.niri.wrap {
+    packages.desktop = inputs.wrapper-modules.wrappers.mangowc.wrap {
       inherit pkgs;
-      #imports = [self.wrappersModules.niri];
+      imports = [self.wrappersModules.mango];
       terminal = lib.getExe self'.packages.terminal;
       #env = {
       #  EDITOR = lib.getExe self'.packages.neovim;
@@ -63,7 +63,7 @@
         pkgs.imv
         pkgs.ffmpeg-full
         pkgs.yt-dlp
-        pkgs.lazygit
+         pkgs.lazygit
 
         # wrapped
         #self'.packages.neovimDynamic
@@ -73,7 +73,7 @@
         #self'.packages.jujutsu
         #self'.packages.jjui
         #self'.packages.nix-check-bin
-      #];
+      ];
       #env = {
       #  EDITOR = lib.getExe self'.packages.neovimDynamic;
       #};
