@@ -10,9 +10,9 @@
     packages.myMango = inputs.wrapper-modules.wrappers.mangowc.wrap {
       inherit pkgs; # THIS PART IS VERY IMPORTAINT, I FORGOT IT IN THE VIDEO!!!
       settings = {
-     #     exec-once= [
-     #     (lib.getExe self'.packages.myNoctalia)
-     #   ];
+          exec-once= [
+          (lib.getExe self'.packages.myNoctalia)
+        ];
 
         #xwayland.path = lib.getExe pkgs.xwayland;
 

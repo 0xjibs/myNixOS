@@ -1,4 +1,4 @@
-{ self, inputs, ... }: {
+##{ self, inputs, ... }: {
   perSystem = { pkgs, ... }: {
     packages.myNoctalia = inputs.wrapper-modules.wrappers.noctalia-shell.wrap {
      #packages.myNoctalia = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default {
@@ -40,4 +40,4 @@
       };
     };
   };
-}
+}##

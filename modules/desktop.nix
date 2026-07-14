@@ -15,12 +15,12 @@
     #programs.niri.package = selfpkgs.niri;
 
     #preferences.autostart = [selfpkgs.quickshellWrapped];
-    preferences.autostart = [selfpkgs.myNoctalia];
+    #preferences.autostart = [selfpkgs.noctalia-shell];
 
     environment.systemPackages = [
-      selfpkgs.terminal
+      #selfpkgs.terminal
       pkgs.pcmanfm
-      selfpkgs.noctalia-shell
+      selfpkgs.myNoctalia
     ];
 
     fonts.packages = with pkgs; [
